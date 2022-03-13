@@ -15,9 +15,9 @@ namespace Plex.ServerApi.PlexModels.Library.Search
                         return Operator.Is;
                     case "!=":
                         return Operator.IsNot;
-                    case ">>":
+                    case ">>=":
                         return Operator.GreaterThan;
-                    case "<<":
+                    case "<<=":
                         return Operator.LessThan;
                     case "==":
                         return Operator.Contains;
