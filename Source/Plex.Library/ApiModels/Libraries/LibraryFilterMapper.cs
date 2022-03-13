@@ -38,7 +38,7 @@ namespace Plex.Library
                 {
                     foreach (var field in fieldType.Filters)
                     {
-                        var fieldMatch = fieldType.Fields.SingleOrDefault(c => c.Key.Contains(field.FilterName));
+                        var fieldMatch = fieldType.Fields.FirstOrDefault(c => c.Key.Contains(field.FilterName)); // plex may return duplicated fields
                         if (fieldMatch == null)
                         {
                             throw new ApplicationException("Where is this field: " + field.FilterName);
@@ -46,7 +46,7 @@ namespace Plex.Library
 
                         var filterField = new FilterFieldModel
                         {
-                            Title =  field.Title,
+                            Title = field.Title,
                             Type = field.Type,
                             UriKey = field.Key,
                             FieldKey = field.FilterName,
